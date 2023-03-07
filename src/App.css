@@ -50,7 +50,6 @@
     margin-top: 30px;
 }
 .basketOrderBox {
-    border: 1px solid #066c0c;
     flex-grow: 2;
     padding: 20px 10px;
 }
@@ -93,4 +92,23 @@
 }
 .basketCountPlus {
 
+}
+.inputForm {
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+.form {
+    border: 1px solid #d3d3d3;
+    padding: 25px 10px 15px 10px;
+    border-radius: 3px;
+}
+
+.totalPrice {
+    font-weight: 700;
+    background-color: #f6f6f6;
+    padding: 5px 15px;
+    font-size: 18px;
+}
+.basketIcon {
+    cursor: pointer;
 }

@@ -27,24 +27,24 @@ export const OrderData = () => {
     const saveData = async (e: any) => {
         e.preventDefault()
         const jsonString = JSON.stringify(combinedData)
-        localStorage.setItem('basketArr', JSON.stringify(productsBasket))
+        // localStorage.setItem('basketArr', JSON.stringify(productsBasket))
         console.log(jsonString)
     }
 
     return (
         <div>
-            <form onSubmit={saveData}>
+            <form onSubmit={saveData} className={'form'}>
 
-                <div>
+                <div className={'inputForm'}>
                     <Input type='text' name="name" placeholder="name" onChange={utilInputs} value={user.name} />
                 </div>
-                <div>
+                <div className={'inputForm'}>
                     <Input type='text' name="surname" placeholder="surname" onChange={utilInputs} value={user.surname} />
                 </div>
-                <div>
+                <div className={'inputForm'}>
                     <Input type='text' name="address" placeholder="address" onChange={utilInputs} value={user.address} />
                 </div>
-                <div>
+                <div className={'inputForm'}>
                     <Input type='text' name="phone" placeholder="+380969724353" onChange={utilInputs} value={user.phone} />
                 </div>
 

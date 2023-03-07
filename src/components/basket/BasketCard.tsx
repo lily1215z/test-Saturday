@@ -16,8 +16,10 @@ export const BasketCard = () => {
     const productsBasket = useAppSelector(state => state.basket.basketItems)
 
     useEffect(() => {
+        // @ts-ignore
+        const savedBasket = JSON.parse(localStorage.getItem('basketArr')) || [];
         // @ts-ignore  //todo
-        dispatch(setBasketItems(productsBasketFirebase))
+        dispatch(setBasketItems(savedBasket))
     }, [productsBasketFirebase])
 
 
@@ -27,10 +29,12 @@ export const BasketCard = () => {
 
     function countMinusHandler(id: string) {
         dispatch(setCountMinus({id}))
+        localStorage.setItem('basketArr', JSON.stringify(productsBasket))
     }
 
     function countPlusHandler(id: string) {
         dispatch(setCountPlus({id}))
+        localStorage.setItem('basketArr', JSON.stringify(productsBasket))
     }
 
     return (
@@ -38,6 +42,7 @@ export const BasketCard = () => {
             {productsBasket ? productsBasket.map((list: ProductItemType) => {
                     return <div key={list.id} className={'basketCard'}>
                         <img width={100}
+                             alt={''}
                              src={list.img}/>
 
                         <div className={'basketInfo'}>
@@ -59,7 +64,7 @@ export const BasketCard = () => {
 
                 })
                 : <div>Basket is empty</div>}
-            <div>Total: {productsBasket && productsBasket.reduce((acc: number, item: ProductItemType) => acc + (item.price * item.count), 0)} y.e.</div>
+            <div className={'totalPrice'}>Total: {productsBasket && productsBasket.reduce((acc: number, item: ProductItemType) => acc + (item.price * item.count), 0)} y.e.</div>
         </>
     );
 };

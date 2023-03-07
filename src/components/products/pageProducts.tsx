@@ -29,21 +29,9 @@ export const PageProducts: FC<Props> = () => {
         dispatch(setProductsItems(products))
     }, [products])
 
-
-    const basket = useAppSelector(state => state.basket.basketItems)
-
     const addCardInBasket = (card: CardType) => {
-        // for(let i=0; i <productItems.length; i++ ) {
-        //     for(let k=0; k<basket.length; k++) {
-        //         if(productItems[i] === basket[k]) {
-        //             return
-        //         } else {
                     // @ts-ignore
                     dispatch(setItemInBasketTC(card))
-        //         }
-        //     }
-        // }
-
     }
 
     if(loading) {
