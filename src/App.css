@@ -1,38 +1,96 @@
-.App {
-  text-align: center;
+.cardBox {
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    width: 170px;
+    padding: 15px 10px;
+    text-align: center;
+    background-color: #f6f6f6;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.cardInner {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    gap: 15px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.cardsTitle {
+    text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/*header*/
+.header {
+    margin-bottom: 40px;
+    padding: 5px 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.headerBasket {
+    max-width: 150px;
+    width: 100%;
+    margin-left: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.headerPrice {
+    font-weight: 700;
+    margin-right: 2px;
+}
+
+.cardButton {
+    display: flex;
+    justify-content: space-between;
+}
+
+/*basket*/
+.basket {
+    display: flex;
+    flex-flow: row nowrap;
+    margin-top: 30px;
+}
+.basketOrderBox {
+    border: 1px solid #066c0c;
+    flex-grow: 2;
+    padding: 20px 10px;
+}
+.basketCardBox {
+    flex-grow: 7;
+    padding: 10px;
+}
+.basketCard {
+    display: flex;
+    justify-content: space-between;
+     padding: 10px 5px;
+     border: 1px solid #f6f6f6;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    background-color: #f6f6f6;
+ }
+.basketCountBox {
+    /*border: 1px solid #7471d5;*/
+    width: 120px;
+    padding: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+ }
+.basketInfo {
+    max-width: 600px;
+    width: 100%;
+    padding: 0 15px;
+}
+.basketCount {
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0 5px;
+    border: 1px solid #eae9e9;
+    width: 24px;
+}
+.basketCountMinus {
+
+}
+.basketCountPlus {
+
 }

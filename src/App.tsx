@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import styled from 'styled-components'
 
+import {appFirebase} from './credenciales'
+import {Login} from './components/auth/Login';
+import {getAuth, onAuthStateChanged} from 'firebase/auth';
+import {Home} from './components/Home';
+
+const auth = getAuth(appFirebase)
+
+const AppWrapper = styled.div`
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+`
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [userEnter, setUserEnter] = useState(null)
+
+    onAuthStateChanged(auth, (userFirebase: any) => {
+        if (userFirebase) {
+            setUserEnter(userFirebase)
+        } else {
+            setUserEnter(null)
+        }
+    })
+
+    return (
+        <AppWrapper>
+            {userEnter ? <Home/> : <Login/>}
+        </AppWrapper>
+    );
 }
 
 export default App;
